@@ -1,0 +1,33 @@
+.header {
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-items {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-link:link,
+.nav-link:visited {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 120%;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: inherit;
+  padding-bottom: 1.8rem;
+}
+
+.nav-link:hover,
+.nav-link:active,
+.nav-link.active {
+  font-weight: 600;
+  color: #5ece7b;
+  border-bottom: 2px solid #5ece7b;
+}
