@@ -1,0 +1,22 @@
+.product-item {
+  padding: 1rem;
+}
+
+.product-img {
+  height: 20.625rem;
+  margin-bottom: 1.5rem;
+}
+
+.product-name,
+.product-price {
+  font-size: 1.125rem;
+  line-height: 160%;
+}
+
+.product-name {
+  font-weight: 300;
+}
+
+.product-price {
+  font-weight: 500;
+}
