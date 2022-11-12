@@ -6,11 +6,12 @@ import cart from './cart.svg';
 
 class Navbar extends PureComponent {
   render() {
+    const { items } = this.props;
     return (
       <header className={styles.header}>
         <nav>
           <ul className={styles['nav-items']}>
-            {this.props.items.map((item) => <li key={item.name}><NavLink to={item.name} className={({ isActive }) => (isActive ? `${styles.active} ${styles['nav-link']}` : `${styles['nav-link']}`)}>{item.name}</NavLink></li>)}
+            {items.map((item) => <li key={item.name}><NavLink to={item.name} className={({ isActive }) => (isActive ? `${styles.active} ${styles['nav-link']}` : `${styles['nav-link']}`)}>{item.name}</NavLink></li>)}
           </ul>
         </nav>
         <div>

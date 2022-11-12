@@ -15,7 +15,7 @@ query {
 
 class App extends PureComponent {
   render() {
-    const items = this.props.data;
+    const { data: items } = this.props;
     return (
       <>
         {!items.loading && <Navbar items={items.categories} />}

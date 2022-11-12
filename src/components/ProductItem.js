@@ -3,8 +3,7 @@ import styles from './ProductItem.module.css';
 
 class ProductItem extends PureComponent {
   render() {
-    console.log(this.props);
-    const {product} = this.props;
+    const { product } = this.props;
     return (
       <li className={styles.productItem}>
         <img src={product.gallery[0]} alt="Product" className={styles['product-img']} />

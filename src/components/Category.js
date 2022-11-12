@@ -48,10 +48,11 @@ class Category extends PureComponent {
   }
 
   fetchProducts() {
+    const { name } = this.props;
     apolloClient.query({
       query: getProductsQuery,
       variables: {
-        title: this.props.name,
+        title: name,
       },
     }).then((res) => {
       this.setState({
@@ -62,15 +63,16 @@ class Category extends PureComponent {
   }
 
   render() {
-    const categoryName = this.props.name;
+    const { name: categoryName } = this.props;
     this.fetchProducts();
+    const { products, isLoaded } = this.state;
     return (
       <div className={styles.container}>
         <h2 className={styles['category-name']}>
           {categoryName.charAt(0).toUpperCase() + categoryName.slice(1)}
         </h2>
         <ul className={styles['products-list']}>
-          {this.state.isLoaded && this.state.products.map((product) => <ProductItem key={product.id} product={product} />)}
+          {isLoaded && products.map((product) => <ProductItem key={product.id} product={product} />)}
         </ul>
       </div>
     );
