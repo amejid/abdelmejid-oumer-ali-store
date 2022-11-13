@@ -1,0 +1,143 @@
+.cart-container {
+  padding: 2rem 1rem;
+  background: #fff;
+  max-height: 43rem;
+  overflow-y: scroll;
+}
+
+.cart-heading {
+  margin-bottom: 2rem;
+}
+
+.cart-info {
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 160%;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.products-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.product-item {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.product-name {
+  font-weight: 300;
+}
+
+.product-price {
+  font-weight: 500;
+}
+
+.product-attr {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.attr-name {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.attr-list {
+  margin-bottom: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.attr-btn-swatch {
+  padding: 1rem;
+}
+
+.attr-btn {
+  padding: 0.25rem 0.5rem;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 160%;
+  border: 1px solid #1d1f22;
+}
+
+.right {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.controls button {
+  cursor: pointer;
+  height: 1.5rem;
+  width: 1.5rem;
+  background: none;
+  border: 1px solid #1d1f22;
+}
+
+.count {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.show {
+  height: 11.5rem;
+}
+
+.price-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.price-info p {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.cta-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.cta-section a:link,
+.cta:visited {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: inherit;
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 120%;
+  width: 100%;
+  padding: 0.75rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #1d1f22;
+}
+
+.cta:link,
+.cta:visited {
+  border: 1px solid #5ece7b;
+  background: #5ece7b;
+  color: #fff;
+}
