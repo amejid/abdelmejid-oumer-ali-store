@@ -26,6 +26,7 @@ class Product extends PureComponent {
       const newPro = JSON.parse(JSON.stringify(product));
       if (newPro.attributes.length > 0) {
         newPro.attributes.forEach((attr) => {
+          // eslint-disable-next-line prefer-destructuring
           attr.selected = attr.items[0];
         });
       }
@@ -75,8 +76,8 @@ class Product extends PureComponent {
         </div>
         {isLoaded && (
         <div>
-          <p className={styles['product-name']}>{product.name}</p>
-          <p className={styles['product-brand']}>{product.brand}</p>
+          <p className={styles['product-name']}>{product.brand}</p>
+          <p className={styles['product-brand']}>{product.name}</p>
           <ul className={styles['product-attr']}>
             {product.attributes.map((attr) => (
               <li key={attr.id}>

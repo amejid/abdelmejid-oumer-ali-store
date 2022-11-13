@@ -10,7 +10,7 @@ class ProductItem extends PureComponent {
       <li className={styles['product-item']}>
         <Link to={`${product.id}`} className={styles['product-link']}>
           <img src={product.gallery[0]} alt="Product" className={styles['product-img']} />
-          <p className={styles['product-name']}>{product.name}</p>
+          <p className={styles['product-name']}>{`${product.brand} ${product.name}`}</p>
           <p className={styles['product-price']}>{`${product.prices[currency.value].currency.symbol} ${product.prices[currency.value].amount}`}</p>
         </Link>
       </li>
