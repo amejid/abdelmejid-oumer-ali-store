@@ -8,6 +8,15 @@ query {
 }
 `;
 
+export const getCurrenciesQuery = gql`
+query {
+  currencies{
+    label
+    symbol
+  }
+}
+`;
+
 export const getProductsQuery = gql`
 query Category($title: String!){
   category(input: {title: $title}){
