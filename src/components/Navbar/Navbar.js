@@ -1,22 +1,15 @@
 import { PureComponent } from 'react';
-import { gql } from '@apollo/client';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import styles from './Navbar.module.css';
 import logo from './logo.svg';
 import cart from './cart.svg';
 import arrowDown from './arrow-down.svg';
+import arrowUp from './arrow-up.svg';
 import apolloClient from '../../client';
 import { setCurrency } from '../../store/currencySlice';
-
-const getCurrenciesQuery = gql`
-query {
-  currencies{
-    label
-    symbol
-  }
-}
-`;
+import { getCurrenciesQuery } from '../../client/queries';
+import CartModal from '../CartModal';
 
 class Navbar extends PureComponent {
   constructor(props) {
@@ -24,6 +17,8 @@ class Navbar extends PureComponent {
     this.state = {
       isLoaded: false,
       currencies: [],
+      switcherOpen: false,
+      cartOpen: false,
     };
   }
 
@@ -38,9 +33,23 @@ class Navbar extends PureComponent {
     });
   }
 
+  changeCurrency(currency) {
+    const { setCurrency } = this.props;
+    setCurrency(currency);
+    this.setState({
+      switcherOpen: false,
+    });
+  }
+
+  closeModal() {
+    this.setState({ cartOpen: false });
+  }
+
   render() {
-    const { items, currency, setCurrency } = this.props;
-    const { isLoaded, currencies } = this.state;
+    const { items, currency, totalCount } = this.props;
+    const {
+      isLoaded, currencies, switcherOpen, cartOpen,
+    } = this.state;
     return (
       <header className={styles.header}>
         <nav>
@@ -52,22 +61,37 @@ class Navbar extends PureComponent {
           <img src={logo} alt="Cart Logo" />
         </div>
         <div className={styles['cart-container']}>
+          {switcherOpen && <div aria-hidden="true" className={styles['dropdown-backdrop']} onClick={() => this.setState({ switcherOpen: false })} />}
+          {cartOpen && <div aria-hidden="true" className={styles['cart-backdrop']} onClick={() => this.closeModal()} />}
           <div className={styles.dropdown}>
-            <button className={styles.dropbtn} type="button">
+            <button className={styles.dropbtn} onClick={() => this.setState({ switcherOpen: true })} type="button">
               <span>{currency.symbol}</span>
-              <img src={arrowDown} alt="Arrow Down" />
+              {!switcherOpen && <img src={arrowDown} alt="Arrow Down" />}
+              {switcherOpen && <img src={arrowUp} alt="Arrow Down" />}
             </button>
+            {switcherOpen && (
             <div className={styles['dropdown-content']}>
               {isLoaded && currencies.map((currency, index) => (
-                <button key={currency.label} type="button" onClick={() => setCurrency({ label: currency.label, symbol: currency.symbol, value: index })}>
+                <button key={currency.label} type="button" onClick={() => this.changeCurrency({ label: currency.label, symbol: currency.symbol, value: index })}>
                   <span>{currency.symbol}</span>
                   &nbsp;
                   {currency.label}
                 </button>
               ))}
             </div>
+            )}
           </div>
-          <img src={cart} alt="Cart Icon" />
+          <div className={styles['cart-dropdown']}>
+            <button className={styles['cart-dropbtn']} onClick={() => this.setState({ cartOpen: true })} type="button">
+              <img src={cart} alt="Cart Icon" />
+              <span className={`${styles.badge} ${styles.lblCartCount}`}>{totalCount}</span>
+            </button>
+            {cartOpen && (
+              <div className={styles['cart-content']}>
+                <CartModal closeModal={this.closeModal} />
+              </div>
+            )}
+          </div>
         </div>
       </header>
     );
@@ -76,6 +100,7 @@ class Navbar extends PureComponent {
 
 const mapStateToProps = (state) => ({
   currency: state.currency,
+  totalCount: state.cart.totalCount,
 });
 
 export default connect(mapStateToProps, { setCurrency })(Navbar);

@@ -34,6 +34,7 @@
 
 .cart-container {
   display: flex;
+  align-items: center;
   gap: 1.25rem;
 }
 
@@ -48,17 +49,46 @@
   align-items: center;
 }
 
-.dropdown {
+.cart-dropbtn {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.dropdown,
+.cart-dropdown {
   position: relative;
   display: inline-block;
 }
 
+.dropdown-backdrop,
+.cart-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100vw;
+}
+
+.cart-backdrop {
+  top: 5rem;
+  background: rgba(57, 55, 72, 0.22);
+}
+
 .dropdown-content {
-  display: none;
   position: absolute;
   min-width: 7rem;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
   z-index: 1;
+}
+
+.cart-content {
+  min-width: 15rem;
+  position: absolute;
+  top: 3rem;
+  right: 4rem;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+  z-index: 2;
 }
 
 .dropdown-content button {
@@ -77,6 +107,19 @@
 
 .dropdown-content button:hover { background-color: #f1f1f1; }
 
-.dropdown:hover .dropdown-content {
-  display: block;
+.badge {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+}
+
+.lblCartCount {
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 1rem;
+  background: #1d1f22;
+  color: #fff;
+  padding: 0 4px;
+  vertical-align: top;
+  margin-left: -0.5rem;
 }
