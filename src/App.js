@@ -5,6 +5,7 @@ import Navbar from './components/Navbar/Navbar';
 import Category from './components/Category';
 import Product from './components/Product';
 import { getCategoriesQuery } from './client/queries';
+import Cart from './components/Cart';
 
 class App extends PureComponent {
   render() {
@@ -16,6 +17,7 @@ class App extends PureComponent {
           <Route path="/" element={<Navigate to="/all" />} />
           {!items.loading && items.categories.map((item) => <Route key={item.name} path={`/${item.name}`} element={<Category name={item.name} />} />)}
           <Route path="/:categoryName/:productId" element={<Product />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </>
     );
