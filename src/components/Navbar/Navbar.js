@@ -7,7 +7,7 @@ import logo from './logo.svg';
 import cart from './cart.svg';
 import arrowDown from './arrow-down.svg';
 import apolloClient from '../../client';
-import { setCurrency } from '../../store';
+import { setCurrency } from '../../store/currencySlice';
 
 const getCurrenciesQuery = gql`
 query {

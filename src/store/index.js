@@ -1,21 +1,22 @@
-import { createSlice, configureStore } from '@reduxjs/toolkit';
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import storage from 'redux-persist/lib/storage';
+import { persistReducer } from 'redux-persist';
+import currencyReducer from './currencySlice';
 
-const initialState = { currency: { label: 'USD', symbol: '$', value: 0 } };
+const persistConfig = {
+  key: 'root',
+  version: 1,
+  storage,
+};
 
-const currencySlice = createSlice({
-  name: 'currency',
-  initialState,
-  reducers: {
-    setCurrency(state, action) {
-      state.currency = action.payload;
-    },
-  },
+const reducer = combineReducers({
+  currency: currencyReducer,
 });
 
-export const { setCurrency } = currencySlice.actions;
+const persistedReducer = persistReducer(persistConfig, reducer);
 
 const store = configureStore({
-  reducer: currencySlice.reducer,
+  reducer: persistedReducer,
 });
 
 export default store;
