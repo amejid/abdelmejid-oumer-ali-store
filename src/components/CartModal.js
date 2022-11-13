@@ -58,7 +58,7 @@ class CartModal extends PureComponent {
           <p>{`${currency.symbol} ${total.toFixed(2)}`}</p>
         </div>
         <div className={styles['cta-section']}>
-          <Link to="/cart" onClick={() => this.closeCart()}>View Bag</Link>
+          <Link to="/cart" onClick={() => this.closeCart()} className={styles.bag}>View Bag</Link>
           <Link to="/" onClick={() => this.closeCart()} className={styles.cta}>Checkout</Link>
         </div>
       </div>

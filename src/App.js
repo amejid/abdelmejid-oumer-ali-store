@@ -2,10 +2,10 @@ import { PureComponent } from 'react';
 import { graphql } from '@apollo/client/react/hoc';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
-import Category from './components/Category';
-import Product from './components/Product';
+import Category from './pages/Category';
+import Product from './pages/Product';
 import { getCategoriesQuery } from './client/queries';
-import Cart from './components/Cart';
+import Cart from './pages/Cart';
 
 class App extends PureComponent {
   render() {
