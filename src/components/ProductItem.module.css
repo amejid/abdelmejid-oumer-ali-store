@@ -1,13 +1,13 @@
 .product-item {
   padding: 1rem;
-  transition: box-shadow .3s;
+  transition: box-shadow 0.3s;
 }
 
-.product-item:hover{
-  box-shadow: 0 0 11px rgba(33,33,33,.2);
+.product-item:hover {
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
 }
 
-.product-link{
+.product-link {
   text-decoration: none;
   color: inherit;
 }
