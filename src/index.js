@@ -5,7 +5,7 @@ import { ApolloProvider } from '@apollo/client';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import App from './App';
-import apolloClient from './apolloClient';
+import apolloClient from './client';
 import store from './store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

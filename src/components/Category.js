@@ -1,6 +1,6 @@
 import { PureComponent } from 'react';
 import { gql } from '@apollo/client';
-import apolloClient from '../apolloClient';
+import apolloClient from '../client';
 import styles from './Category.module.css';
 import ProductItem from './ProductItem';
 

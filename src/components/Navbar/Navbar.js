@@ -6,7 +6,7 @@ import styles from './Navbar.module.css';
 import logo from './logo.svg';
 import cart from './cart.svg';
 import arrowDown from './arrow-down.svg';
-import apolloClient from '../../apolloClient';
+import apolloClient from '../../client';
 import { setCurrency } from '../../store';
 
 const getCurrenciesQuery = gql`
