@@ -1,42 +1,8 @@
 import { PureComponent } from 'react';
-import { gql } from '@apollo/client';
 import apolloClient from '../client';
 import styles from './Category.module.css';
 import ProductItem from './ProductItem';
-
-const getProductsQuery = gql`
-query Category($title: String!){
-  category(input: {title: $title}){
-    name
-    products {
-      id
-      name
-      inStock
-      gallery
-      description
-      category
-      attributes {
-        id
-        name
-        type
-        items {
-          displayValue
-          value
-          id
-        }
-      }
-      prices {
-        currency {
-          label
-          symbol
-        }
-        amount
-      }
-      brand
-    }
-  }
-}
-`;
+import { getProductsQuery } from '../client/queries';
 
 class Category extends PureComponent {
   constructor(props) {
@@ -71,9 +37,7 @@ class Category extends PureComponent {
         <h2 className={styles['category-name']}>
           {categoryName.charAt(0).toUpperCase() + categoryName.slice(1)}
         </h2>
-        <ul className={styles['products-list']}>
-          {isLoaded && products.map((product) => <ProductItem key={product.id} product={product} />)}
-        </ul>
+        <ul className={styles['products-list']}>{isLoaded && products.map((product) => <ProductItem key={product.id} product={product} />)}</ul>
       </div>
     );
   }

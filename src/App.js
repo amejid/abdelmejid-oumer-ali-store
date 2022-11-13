@@ -1,17 +1,10 @@
 import { PureComponent } from 'react';
-import { gql } from '@apollo/client';
 import { graphql } from '@apollo/client/react/hoc';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Category from './components/Category';
-
-const getProductsQuery = gql`
-query {
-  categories {
-    name
-  }
-}
-`;
+import Product from './components/Product';
+import { getCategoriesQuery } from './client/queries';
 
 class App extends PureComponent {
   render() {
@@ -20,12 +13,13 @@ class App extends PureComponent {
       <>
         {!items.loading && <Navbar items={items.categories} />}
         <Routes>
-          <Route path="/" element={<Category name="all" />} />
+          <Route path="/" element={<Navigate to="/all" />} />
           {!items.loading && items.categories.map((item) => <Route key={item.name} path={`/${item.name}`} element={<Category name={item.name} />} />)}
+          <Route path="/:categoryName/:productId" element={<Product />} />
         </Routes>
       </>
     );
   }
 }
 
-export default graphql(getProductsQuery)(App);
+export default graphql(getCategoriesQuery)(App);
