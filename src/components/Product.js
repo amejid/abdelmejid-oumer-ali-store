@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import parse from 'html-react-parser';
 import apolloClient from '../client';
 import { getProductQuery } from '../client/queries';
+import { addProduct } from '../store/cartSlice';
 import styles from './Product.module.css';
 
 function withParams(Component) {
@@ -63,7 +64,7 @@ class Product extends PureComponent {
 
   render() {
     const { product, defaultImg, isLoaded } = this.state;
-    const { currency } = this.props;
+    const { currency, addProduct } = this.props;
     return (
       <div className={styles['product-container']}>
         <div className={styles.gallery}>
@@ -88,7 +89,7 @@ class Product extends PureComponent {
           </ul>
           <p className={styles['product-price-label']}>Price:</p>
           <p className={styles['product-price']}>{`${product.prices[currency.value].currency.symbol} ${product.prices[currency.value].amount}`}</p>
-          <button type="button" className={styles.cta}>Add to cart</button>
+          <button onClick={() => addProduct(product)} type="button" className={styles.cta}>Add to cart</button>
           {parse(product.description)}
         </div>
         )}
@@ -101,4 +102,4 @@ const mapStateToProps = (state) => ({
   currency: state.currency,
 });
 
-export default withParams(connect(mapStateToProps)(Product));
+export default withParams(connect(mapStateToProps, { addProduct })(Product));
