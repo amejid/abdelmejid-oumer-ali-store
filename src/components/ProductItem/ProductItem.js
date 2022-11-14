@@ -2,8 +2,8 @@ import { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styles from './ProductItem.module.css';
-import cartImg from './Navbar/cart.svg';
-import { addProduct } from '../store/cartSlice';
+import cartImg from './cart.svg';
+import { addProduct } from '../../store/cartSlice';
 
 class ProductItem extends PureComponent {
   render() {
@@ -17,7 +17,7 @@ class ProductItem extends PureComponent {
         </Link>
         { product.attributes.length === 0 && (
         <button className={styles.cta} type="button" onClick={() => addProduct(product)}>
-          <img src={cartImg} alt="Cart icon" style={{ fill: '#fff' }} />
+          <img src={cartImg} alt="Cart icon" />
         </button>
         )}
       </li>

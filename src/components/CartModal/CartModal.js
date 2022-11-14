@@ -1,7 +1,7 @@
 import { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { incrementProduct, decrementProduct } from '../store/cartSlice';
+import { incrementProduct, decrementProduct } from '../../store/cartSlice';
 import styles from './CartModal.module.css';
 
 class CartModal extends PureComponent {

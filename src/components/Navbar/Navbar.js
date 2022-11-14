@@ -9,7 +9,7 @@ import arrowUp from './arrow-up.svg';
 import apolloClient from '../../client';
 import { setCurrency } from '../../store/currencySlice';
 import { getCurrenciesQuery } from '../../client/queries';
-import CartModal from '../CartModal';
+import CartModal from '../CartModal/CartModal';
 
 class Navbar extends PureComponent {
   constructor(props) {

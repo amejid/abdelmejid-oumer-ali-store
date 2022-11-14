@@ -1,7 +1,7 @@
 import { PureComponent } from 'react';
 import apolloClient from '../client';
 import styles from './Category.module.css';
-import ProductItem from '../components/ProductItem';
+import ProductItem from '../components/ProductItem/ProductItem';
 import { getProductsQuery } from '../client/queries';
 
 class Category extends PureComponent {
