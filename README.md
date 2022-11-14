@@ -17,7 +17,7 @@ To get a local copy up and running follow these simple example steps.
 
 ### Using it Locally
 
-- Clone the project from GitHub `git clone git@github.com:amejid/minimal-storefront.git`
+- Clone the project from GitHub `git clone git@github.com:amejid/abdelmejid-oumer-ali-store.git`
 - Run the following commands as listed in your terminal:
 - `npm install`
 - `npm start`
