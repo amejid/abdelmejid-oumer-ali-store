@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styles from './Cart.module.css';
 import { decrementProduct, incrementProduct } from '../store/cartSlice';
+import CartSlider from '../components/CartSlider/CartSlider';
 
 class Cart extends PureComponent {
   render() {
@@ -41,7 +42,9 @@ class Cart extends PureComponent {
                     <p className={styles.count}>{prod.count}</p>
                     <button type="button" onClick={() => decrementProduct(prod.cartId)}>-</button>
                   </div>
-                  <img className={styles.show} src={prod.gallery[0]} alt="Product" />
+                  <div className={styles['show-container']}>
+                    <CartSlider images={prod.gallery} />
+                  </div>
                 </div>
               </li>
             );

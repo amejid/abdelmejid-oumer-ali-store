@@ -113,8 +113,9 @@
   line-height: 160%;
 }
 
-.show {
+.show-container {
   height: 18rem;
+  position: relative;
 }
 
 .price-info {

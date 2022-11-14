@@ -1,0 +1,19 @@
+.show {
+  height: 100%;
+}
+
+.slide {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.slide button {
+  background: rgba(0, 0, 0, 0.73);
+  color: #fff;
+  height: 1.5rem;
+  width: 1.5rem;
+  border: none;
+}
