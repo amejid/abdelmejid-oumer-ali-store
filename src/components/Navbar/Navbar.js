@@ -71,11 +71,11 @@ class Navbar extends PureComponent {
             </button>
             {switcherOpen && (
             <div className={styles['dropdown-content']}>
-              {isLoaded && currencies.map((currency, index) => (
-                <button key={currency.label} type="button" onClick={() => this.changeCurrency({ label: currency.label, symbol: currency.symbol, value: index })}>
-                  <span>{currency.symbol}</span>
+              {isLoaded && currencies.map((curr, index) => (
+                <button key={curr.label} type="button" style={{ backgroundColor: `${currency.value === index ? '#f1f1f1' : '#fff'}` }} onClick={() => this.changeCurrency({ label: curr.label, symbol: curr.symbol, value: index })}>
+                  <span>{curr.symbol}</span>
                   &nbsp;
-                  {currency.label}
+                  {curr.label}
                 </button>
               ))}
             </div>
