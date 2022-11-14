@@ -21,7 +21,7 @@ class CartSlider extends PureComponent {
 
   decrementSlide() {
     const { currentImg } = this.state;
-    if (currentImg > 1) {
+    if (currentImg > 0) {
       this.setState({
         currentImg: currentImg - 1,
       });
