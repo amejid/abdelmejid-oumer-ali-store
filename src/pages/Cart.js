@@ -48,18 +48,16 @@ class Cart extends PureComponent {
           })}
         </ul>
         <div className={styles['price-info']}>
-          <p>
-            Tax 21%:
-            <span className={styles.highlight}>{` ${currency.symbol}${(total * 0.21).toFixed(2)}`}</span>
-          </p>
-          <p>
-            Quantity:
-            <span className={styles.highlight}>{` ${cart.totalCount}`}</span>
-          </p>
-          <p>
-            Total:
-            <span className={styles.highlight}>{` ${currency.symbol}${(total + (total * 0.21)).toFixed(2)}`}</span>
-          </p>
+          <div>
+            <p>Tax 21%:</p>
+            <p>Quantity:</p>
+            <p>Total:</p>
+          </div>
+          <div>
+            <p className={styles.highlight}>{` ${currency.symbol}${(total * 0.21).toFixed(2)}`}</p>
+            <p className={styles.highlight}>{` ${cart.totalCount}`}</p>
+            <p className={styles.highlight}>{` ${currency.symbol}${(total + (total * 0.21)).toFixed(2)}`}</p>
+          </div>
         </div>
         <div className={styles['cta-section']}>
           <Link to="/" className={styles.cta}>Order</Link>

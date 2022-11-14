@@ -30,7 +30,9 @@
 }
 
 .product-item {
-  display: flex;
+  display: grid;
+  width: 32rem;
+  grid-template-columns: 1fr 1fr;
   gap: 0.5rem;
 }
 

@@ -119,6 +119,9 @@
 
 .price-info {
   margin-bottom: 2rem;
+  display: grid;
+  width: 18rem;
+  grid-template-columns: 1fr 1fr;
 }
 
 .price-info p {
@@ -128,7 +131,7 @@
   margin-bottom: 0.5rem;
 }
 
-.highlight {
+.price-info .highlight {
   font-weight: 700;
 }
 
