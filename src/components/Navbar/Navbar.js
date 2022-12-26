@@ -84,7 +84,7 @@ class Navbar extends PureComponent {
           <div className={styles['cart-dropdown']}>
             <button className={styles['cart-dropbtn']} onClick={() => this.setState({ cartOpen: true })} type="button">
               <img src={cart} alt="Cart Icon" />
-              <span className={`${styles.badge} ${styles.lblCartCount}`}>{totalCount}</span>
+              {totalCount > 0 && <span className={`${styles.badge} ${styles.lblCartCount}`}>{totalCount}</span>}
             </button>
             {cartOpen && (
               <div className={styles['cart-content']}>
