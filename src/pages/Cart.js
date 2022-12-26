@@ -24,7 +24,7 @@ class Cart extends PureComponent {
                 <div className={styles.left}>
                   <p className={styles['product-brand']}>{prod.brand}</p>
                   <p className={styles['product-name']}>{prod.name}</p>
-                  <p className={styles['product-price']}>{`${prod.prices[currency.value].currency.symbol} ${prod.prices[currency.value].amount}`}</p>
+                  <p className={styles['product-price']}>{`${prod.prices[currency.value].currency.symbol}${prod.prices[currency.value].amount}`}</p>
                   <ul className={styles['product-attr']}>
                     {prod.attributes.map((attr) => (
                       <li key={attr.id}>
@@ -63,7 +63,7 @@ class Cart extends PureComponent {
           </div>
         </div>
         <div className={styles['cta-section']}>
-          <Link to="/" className={styles.cta}>Order</Link>
+          {cart.products.length > 0 ? <Link to="/" className={styles.cta}>Order</Link> : <button type="button" className={styles.cta} disabled>Your cart is empty</button>}
         </div>
       </div>
     );
