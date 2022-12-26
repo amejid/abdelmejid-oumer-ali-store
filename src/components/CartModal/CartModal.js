@@ -18,8 +18,8 @@ class CartModal extends PureComponent {
     return (
       <div className={styles['cart-container']}>
         <p className={styles['cart-heading']}>
-          <span className={styles['cart-info']}>My Bag </span>
-          {`${cart.totalCount} items`}
+          <span className={styles['cart-info']}>My Bag, </span>
+          {`${cart.totalCount} ${cart.totalCount === 1 ? 'item' : 'items'}`}
         </p>
         <ul className={styles['products-list']}>
           {cart.products.length > 0 && cart.products.map((prod) => {
@@ -29,13 +29,13 @@ class CartModal extends PureComponent {
                 <div className={styles.left}>
                   <p className={styles['product-name']}>{prod.brand}</p>
                   <p className={styles['product-name']}>{prod.name}</p>
-                  <p className={styles['product-price']}>{`${prod.prices[currency.value].currency.symbol} ${prod.prices[currency.value].amount}`}</p>
+                  <p className={styles['product-price']}>{`${prod.prices[currency.value].currency.symbol}${prod.prices[currency.value].amount}`}</p>
                   <ul className={styles['product-attr']}>
                     {prod.attributes.map((attr) => (
                       <li key={attr.id}>
                         <p className={styles['attr-name']}>{`${attr.name}:`}</p>
                         <ul className={styles['attr-list']}>
-                          {attr.type === 'text' ? attr.items.map((item) => (item.id === attr.selected.id ? <div className={styles['attr-btn']} style={{ background: 'black', color: 'white' }} key={item.id}>{item.value}</div> : <div className={styles['attr-btn']} key={item.id}>{item.value}</div>)) : attr.items.map((item) => (item.id === attr.selected.id ? <div key={item.id} className={styles['attr-btn-swatch']} style={{ background: item.value, outline: '2px solid orangered' }} aria-labelledby="color-label" /> : <div key={item.id} className={styles['attr-btn-swatch']} style={{ background: item.value }} aria-labelledby="color-label" />))}
+                          {attr.type === 'text' ? attr.items.map((item) => (item.id === attr.selected.id ? <li className={styles['attr-btn']} style={{ background: 'black', color: 'white' }} key={item.id}>{item.value}</li> : <li className={styles['attr-btn']} key={item.id}>{item.value}</li>)) : attr.items.map((item) => (item.id === attr.selected.id ? <li key={item.id} className={styles['attr-btn-swatch']} style={{ background: item.value, outline: '2px solid orangered' }} aria-labelledby="color-label" /> : <li key={item.id} className={styles['attr-btn-swatch']} style={{ background: item.value }} aria-labelledby="color-label" />))}
                         </ul>
                       </li>
                     ))}
@@ -47,24 +47,24 @@ class CartModal extends PureComponent {
                     <p className={styles.count}>{prod.count}</p>
                     <button type="button" onClick={() => decrementProduct(prod.cartId)}>-</button>
                   </div>
-                  <img className={styles.show} src={prod.gallery[0]} alt="Product" />
+                  <div className={styles['show-container']}>
+                    <img className={styles.show} src={prod.gallery[0]} alt="Product" />
+                  </div>
                 </div>
               </li>
             );
           })}
         </ul>
-        <div className={styles['price-info']}>
-          <p>Total</p>
-          <p>{`${currency.symbol} ${total.toFixed(2)}`}</p>
-        </div>
-        {cart.totalCount > 0 && (
-        <>
+        <div>
+          <div className={styles['price-info']}>
+            <p>Total</p>
+            <p>{`${currency.symbol}${total.toFixed(2)}`}</p>
+          </div>
           <div className={styles['cta-section']}>
             <Link to="/cart" onClick={() => this.closeCart()} className={styles.bag}>View Bag</Link>
             <Link to="/" onClick={() => this.closeCart()} className={styles.cta}>Checkout</Link>
           </div>
-        </>
-        )}
+        </div>
       </div>
     );
   }

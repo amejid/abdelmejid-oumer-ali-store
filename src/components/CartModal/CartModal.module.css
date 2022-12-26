@@ -2,6 +2,7 @@
   padding: 2rem 1rem;
   background: #fff;
   max-height: 43rem;
+  width: 21rem;
   overflow-y: scroll;
 }
 
@@ -19,6 +20,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  width: 8.75rem;
 }
 
 .products-list {
@@ -31,17 +33,21 @@
 
 .product-item {
   display: grid;
-  width: 32rem;
+  width: 18.5rem;
   grid-template-columns: 1fr 1fr;
   gap: 0.5rem;
 }
 
 .product-name {
   font-weight: 300;
+  font-size: 1rem;
+  line-height: 160%;
 }
 
 .product-price {
   font-weight: 500;
+  font-size: 1rem;
+  line-height: 160%;
 }
 
 .product-attr {
@@ -62,14 +68,18 @@
   margin-bottom: 0.5rem;
   display: flex;
   gap: 0.5rem;
+  list-style: none;
 }
 
 .attr-btn-swatch {
-  padding: 1rem;
+  padding: 0.5rem;
 }
 
 .attr-btn {
-  padding: 0.25rem 0.5rem;
+  padding: 0 0.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 160%;
@@ -85,6 +95,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
 }
 
 .controls button {
@@ -100,8 +111,13 @@
   font-size: 1rem;
 }
 
+.show-container {
+  width: 7.5625rem;
+  height: 11.875rem;
+}
+
 .show {
-  height: 11.5rem;
+  width: 100%;
 }
 
 .price-info {
