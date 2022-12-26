@@ -2,7 +2,7 @@
   margin-top: 4.5rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 4rem;
+  gap: 6.25rem;
 }
 
 .gallery {
@@ -25,11 +25,17 @@
 
 .mini-img {
   cursor: pointer;
-  height: 5.5rem;
+  width: 5rem;
+}
+
+.full-img-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .full-img {
-  height: 30rem;
+  max-height: 32rem;
 }
 
 .product-name,
@@ -63,6 +69,7 @@
 
 .attr-list {
   margin-bottom: 2.25rem;
+  list-style: none;
   display: flex;
   gap: 0.75rem;
 }
@@ -101,4 +108,9 @@
   color: #fff;
   font-size: 1rem;
   line-height: 120%;
+}
+
+.cta:disabled {
+  background: #8d8f9a;
+  cursor: not-allowed;
 }

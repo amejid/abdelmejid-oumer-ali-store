@@ -72,7 +72,9 @@ class Product extends PureComponent {
           <ul className={styles['mini-gallery']}>
             {isLoaded && product.gallery.map((image) => <li key={image}><button type="button" onClick={() => this.setState({ defaultImg: image })}><img className={styles['mini-img']} src={image} alt="Product view" /></button></li>)}
           </ul>
-          {isLoaded && <img src={defaultImg} alt="Large view" className={styles['full-img']} />}
+          <div className={styles['full-img-container']}>
+            {isLoaded && <img src={defaultImg} alt="Large view" className={styles['full-img']} />}
+          </div>
         </div>
         {isLoaded && (
         <div>
@@ -83,14 +85,14 @@ class Product extends PureComponent {
               <li key={attr.id}>
                 <p className={styles['attr-name']}>{`${attr.name}:`}</p>
                 <ul className={styles['attr-list']}>
-                  {attr.type === 'text' ? attr.items.map((item, index) => (item.id === attr.selected.id ? <button onClick={() => this.updateSelectedAttribute(attr.id, index)} className={styles['attr-btn']} style={{ background: 'black', color: 'white' }} key={item.id} type="button">{item.value}</button> : <button onClick={() => this.updateSelectedAttribute(attr.id, index)} className={styles['attr-btn']} key={item.id} type="button">{item.value}</button>)) : attr.items.map((item, index) => (item.id === attr.selected.id ? <button onClick={() => this.updateSelectedAttribute(attr.id, index)} key={item.id} type="button" className={styles['attr-btn-swatch']} style={{ background: item.value, outline: '2px solid orangered' }} aria-labelledby="color-label" /> : <button onClick={() => this.updateSelectedAttribute(attr.id, index)} key={item.id} type="button" className={styles['attr-btn-swatch']} style={{ background: item.value }} aria-labelledby="color-label" />))}
+                  {attr.type === 'text' ? attr.items.map((item, index) => (item.id === attr.selected.id ? <li><button onClick={() => this.updateSelectedAttribute(attr.id, index)} className={styles['attr-btn']} style={{ background: 'black', color: 'white' }} key={item.id} type="button">{item.value}</button></li> : <li><button onClick={() => this.updateSelectedAttribute(attr.id, index)} className={styles['attr-btn']} key={item.id} type="button">{item.value}</button></li>)) : attr.items.map((item, index) => (item.id === attr.selected.id ? <li><button onClick={() => this.updateSelectedAttribute(attr.id, index)} key={item.id} type="button" className={styles['attr-btn-swatch']} style={{ background: item.value, outline: '2px solid orangered' }} aria-labelledby="color-label" /></li> : <li><button onClick={() => this.updateSelectedAttribute(attr.id, index)} key={item.id} type="button" className={styles['attr-btn-swatch']} style={{ background: item.value }} aria-labelledby="color-label" /></li>))}
                 </ul>
               </li>
             ))}
           </ul>
           <p className={styles['product-price-label']}>Price:</p>
-          <p className={styles['product-price']}>{`${product.prices[currency.value].currency.symbol} ${product.prices[currency.value].amount}`}</p>
-          <button onClick={() => addProduct(product)} type="button" className={styles.cta}>Add to cart</button>
+          <p className={styles['product-price']}>{`${product.prices[currency.value].currency.symbol}${product.prices[currency.value].amount}`}</p>
+          {product.inStock ? <button onClick={() => addProduct(product)} type="button" className={styles.cta}>Add to cart</button> : <button type="button" className={styles.cta} disabled>Out of stock</button>}
           {parse(product.description)}
         </div>
         )}
