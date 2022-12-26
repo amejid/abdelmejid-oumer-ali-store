@@ -5,7 +5,7 @@ import currencyReducer from './currencySlice';
 import cartReducer from './cartSlice';
 
 const persistConfig = {
-  key: 'root',
+  key: 'scandiShopAmejid',
   version: 1,
   storage,
 };
