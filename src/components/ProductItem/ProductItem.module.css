@@ -1,6 +1,7 @@
 .product-item {
   position: relative;
   padding: 1rem;
+  width: 24.125rem;
   transition: box-shadow 0.3s;
 }
 
@@ -11,10 +12,41 @@
 .product-link {
   text-decoration: none;
   color: inherit;
+  display: inline-block;
+  position: relative;
+}
+
+.out-stock {
+  background-color: #fff;
+  color: #8d8f9a;
+  opacity: 0.5;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 200;
+}
+
+.out-stock-text {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 160%;
+  text-transform: uppercase;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.product-img-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .product-img {
-  height: 20.625rem;
+  height: 21.125rem;
   margin-bottom: 1.5rem;
 }
 
